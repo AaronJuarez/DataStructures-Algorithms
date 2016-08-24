@@ -22,18 +22,24 @@ import static org.junit.Assert.*;
  */
 public class LinkedListTest {
     LinkedList linkedList;
+    int[] elements;
     
     @Before
     public void setUp() {
         linkedList = new LinkedListImpl();
+        elements = new int[] {1,2,3,4,5};
         
     }
     
     @Test
     public void happyPath() {
         
+        for(int i=0; i<elements.length; i++){
+            linkedList.insert(elements[i]);
+        }
         linkedList.display();
         linkedList.delete();
+        linkedList.display();
         
     }
 

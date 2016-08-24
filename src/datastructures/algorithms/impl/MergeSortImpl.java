@@ -11,23 +11,16 @@ public class MergeSortImpl<E> implements MergeSort<E>{
         
         if(elemArray.length != 0) {
         
-            if(elemArray[0] instanceof Integer) {
-                System.out.println("is integer");
+            if(elemArray[0] instanceof Double || elemArray[0] instanceof Integer
+                    || elemArray[0] instanceof Float) {
+                System.out.println("is supported");
                 elements = (Double[]) elemArray;
-            }
-
-            if(elemArray[0] instanceof Double) {
-                System.out.println("is double");
-                elements = (Double[]) elemArray;
-            }
-
-            if(elemArray[0] instanceof String) {
-                System.out.println("is string");
-                throw new Exception();
+            } else {
+                throw new Exception("Value not supported");
             }
             
         }else {
-            throw new Exception();
+            throw new Exception("Array length must not be cero");
         }
         
     }
@@ -92,6 +85,7 @@ public class MergeSortImpl<E> implements MergeSort<E>{
         for(int i=0; i<getElements().length; i++){
             System.out.print(getElements()[i] + " ");
         }
+        System.out.println();
     }
 
     @Override

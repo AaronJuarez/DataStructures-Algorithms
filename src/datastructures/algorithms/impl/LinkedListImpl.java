@@ -19,26 +19,27 @@ public class LinkedListImpl<E> implements LinkedList<E>{
     @Override
     public void insert(E elem) {
         Link temp = new Link(elem);
-        temp.next = getFirst();
-        setFirst(temp);
-        setSize(getSize() + 1);
+        temp.setNext(first);
+        first = temp;
+        size++;
     }
 
     @Override
     public E delete() {
-        Link temp = getFirst();
-        setFirst(getFirst().next);
-        return temp.data;
+        Link temp = first;
+        first = first.getNext();
+        size--;
+        return temp.getData();
     }
 
     @Override
     public E find(E elem) {
-        Link current = getFirst();
+        Link current = first;
         E data = null;
         
         while(current != null){
-            if(current.data.equals(elem)){
-                data = current.data;
+            if(current.getData().equals(elem)){
+                data = current.getData();
                 break;
             }
         }
@@ -47,66 +48,48 @@ public class LinkedListImpl<E> implements LinkedList<E>{
     
     @Override
     public boolean isEmpty(){
-        return getSize() == 0;
+        return size == 0;
     }
 
     @Override
     public void display() {
-        Link current = getFirst();
+        Link current = first;
         while(current != null){
-            current.displayLink();
-            current = current.next;
+            System.out.print(current.getData());
+            current = current.getNext();
         }
+        System.out.println();
         
     }
     
     @Override
     public E returnFirst(){
         if(!isEmpty()){
-            return first.data;
+            return first.getData();
         }
         return null;
     }
-
-
-    public Link getFirst() {
-        return first;
-    }
-
-    /**
-     * @param first the first to set
-     */
-    public void setFirst(Link first) {
-        this.first = first;
-    }
-
-    /**
-     * @return the size
-     */
-    public int getSize() {
-        return size;
-    }
-
-    /**
-     * @param size the size to set
-     */
-    public void setSize(int size) {
-        this.size = size;
-    }
     
-    
-    
-    public class Link {
-        private E data;
+    class Link {
+        private final E data;
         private Link next;
         
         public Link(E elem){
             this.data = elem;
         }
-        
-        public void displayLink(){
-            System.out.println(data);
+
+        public E getData() {
+            return data;
         }
+
+        public Link getNext() {
+            return next;
+        }
+
+        public void setNext(Link next) {
+            this.next = next;
+        }
+        
         
     }
     

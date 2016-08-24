@@ -20,7 +20,7 @@ import static org.junit.Assert.*;
  */
 public class MergeSortTest<E> {
     MergeSort mergeSort;
-    /**
+    
     @Test
     public void intTest() {
         Object[] elements = new Integer[]{9,8,7,6,5,4,3,2,1,0};
@@ -31,10 +31,10 @@ public class MergeSortTest<E> {
             mergeSort.doMerge();
             mergeSort.display();
         }catch(Exception e){
-            e.printStackTrace();
+            System.out.println("intTest: " + e.getMessage());
         }
     }
-    **/
+    
     @Test
     public void doubleTest(){
         Object[] elements = new Double[]{9.4,8.4,7.6,6.3,5.9,4.7,3.2,2.8,1.3,0.8};
@@ -49,7 +49,21 @@ public class MergeSortTest<E> {
         }
         
     }
-    /**
+    
+        @Test
+    public void floatTest() {
+        Object[] elements = new Float[]{9.4f,8.4f,7.6f,6.3f,5.9f,4.7f,3.2f,2.8f,1.3f,0.8f};
+        
+        try{
+            mergeSort = new MergeSortImpl(elements);
+            //assertFalse(mergeSort.getElements()[0] instanceof String);
+            mergeSort.doMerge();
+            mergeSort.display();
+        }catch(Exception e){
+            System.out.println("floatTest: " + e.getMessage());
+        }
+    }
+    
     @Test
     public void stringTest() {
         Object[] elements = new String[]{"this","is","a","string", "test"};
@@ -59,9 +73,8 @@ public class MergeSortTest<E> {
             mergeSort.doMerge();
             mergeSort.display();
         }catch(Exception e){
-            System.out.println("String array");
+            System.out.println("stringTest: " + e.getMessage());
         }
     }
-    **/
     
 }
