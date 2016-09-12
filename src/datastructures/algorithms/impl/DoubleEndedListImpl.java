@@ -13,7 +13,7 @@ public class DoubleEndedListImpl<E> implements DoubleEndedList<E>{
 		temp.next = first;
 		
 		if(isEmpty()){
-			last = temp;
+                    last = temp;
 		}
 		
 		first = temp;
@@ -25,7 +25,7 @@ public class DoubleEndedListImpl<E> implements DoubleEndedList<E>{
 		Link temp = new Link(elem);
 		last.next = temp;
 		if(isEmpty()){
-			first = temp;
+                    first = temp;
 		}
 		last = temp;
 		size++;
@@ -35,11 +35,11 @@ public class DoubleEndedListImpl<E> implements DoubleEndedList<E>{
 	public E deleteFirst(){
 		
 		if(!isEmpty()){
-			first = first.next;
-			size--;
-			return first.data;
+                    first = first.next;
+                    size--;
+                    return first.data;
 		}else{
-			return null;
+                    return null;
 		}
 	}
 
@@ -51,7 +51,7 @@ public class DoubleEndedListImpl<E> implements DoubleEndedList<E>{
 		
 		if(!isEmpty()){
 			while(!current.next.equals(last)){
-					current = current.next;
+                            current = current.next;
 			}
 			current.next = null;
 			last = current;
@@ -69,15 +69,15 @@ public class DoubleEndedListImpl<E> implements DoubleEndedList<E>{
 		if(!isEmpty()){
 			for(int i=0; i<size; i++){
 				if(current.data.equals(afterElem)){
-					temp.next = current.next;
-					current.next = temp;
-                                        break;
+                                    temp.next = current.next;
+                                    current.next = temp;
+                                    break;
 				}else{
-					current = current.next;
+                                    current = current.next;
 				}
 			}
 		}else{
-			System.out.println("Is empty");
+                    System.out.println("Is empty");
 		}
 	}
 	
@@ -130,30 +130,6 @@ public class DoubleEndedListImpl<E> implements DoubleEndedList<E>{
             }
             return null;
         }
-	
-	public Link getFirst() {
-		return first;
-	}
-
-	public void setFirst(Link first) {
-		this.first = first;
-	}
-
-	public Link getLast() {
-		return last;
-	}
-
-	public void setLast(Link last) {
-		this.last = last;
-	}
-
-	public int getSize() {
-		return size;
-	}
-
-	public void setSize(int size) {
-		this.size = size;
-	}
 
 	public class Link{
 		private E data;

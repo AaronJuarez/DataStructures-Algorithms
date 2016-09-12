@@ -2,139 +2,157 @@ package datastructures.algorithms.impl;
 
 import datastructures.algorithms.inter.DoublyLinkedList;
 
-public class DoublyLinkedListImpl <E> implements DoublyLinkedList <E> {
-	Link first = null;
-	Link last = null;
-	private int size;
+public class DoublyLinkedListImpl<E> implements DoublyLinkedList<E> {
 
-        @Override
-	public void insertFirst(E elem) {
-		Link temp = new Link(elem);
-		temp.next = first;
-		if(!isEmpty()){
-			first.previous = temp;
-		}else{
-			last = temp;
-		}
-		first = temp;
-		size++;
-	}
+    private Link first = null;
+    private Link last = null;
+    private int size;
 
-        @Override
-	public void insertLast(E elem) {
-		Link temp = new Link(elem);
-		temp.previous = last;
-		if(!isEmpty()){
-			last.next = temp;
-		}else{
-			first = temp;
-		}
-		last = temp;
-		size++;
-	}
+    @Override
+    public void insertFirst(E elem) {
+        Link temp = new Link(elem);
+        temp.setNext(first);
+        if (!isEmpty()) {
+            first.setPrevious(temp);
+        } else {
+            last = temp;
+        }
+        first = temp;
+        size++;
+    }
 
-        @Override
-	public void insertAfter(E elem, E afterElem) {
-		Link temp = new Link(elem);
-                Link current = first;
-                
-                while(current!=null){
-                    if(current.data == afterElem){
-                        temp.next = current.next;
-                        temp.previous = current;
-                        current.next.previous = temp;
-                        current.next = temp;
-                        break;
-                    }else{
-                        current = current.next;
-                    }
-                }
-		
-	}
+    @Override
+    public void insertLast(E elem) {
+        Link temp = new Link(elem);
+        temp.setPrevious(last);
+        if (!isEmpty()) {
+            last.setNext(temp);
+        } else {
+            first = temp;
+        }
+        last = temp;
+        size++;
+    }
 
-        @Override
-	public E deleteFirst() {
-            Link temp;
-            if(!isEmpty()){
-                temp = first;
-                first = first.next;
-                first.previous = null;
-                return temp.data;
-            }else{
-                return null;
+    @Override
+    public void insertAfter(E elem, E afterElem) {
+        Link temp = new Link(elem);
+        Link current = first;
+
+        while (current != null) {
+            if (current.getData() == afterElem) {
+                temp.setNext(current.getNext());
+                temp.setPrevious(current);
+                current.next.setPrevious(temp);
+                current.setNext(temp);
+                break;
+            } else {
+                current = current.getNext();
             }
-	}
+        }
 
-        @Override
-	public E deleteLast() {
-            Link temp;
-            if(!isEmpty()){
-                temp = last;
-                last = last.previous;
-                last.next = null;
-                return temp.data;
-            }else{
-                return null;
-            }
-	}
+    }
 
-        @Override
-	public E deleteElement(E elem) {
-            Link current = first;
-            Link temp;
-            
-            while(current != null){
-                if(current.data == elem){
-                    temp = current;
-                    current.next.previous = current.previous;
-                    current.previous.next = current.next;
-                    return temp.data;
-                }else{
-                    current = current.next;
-                }
-            }
+    @Override
+    public E deleteFirst() {
+        Link temp;
+        if (!isEmpty()) {
+            temp = first;
+            first = first.getNext();
+            first.setPrevious(null);
+            return temp.getData();
+        } else {
             return null;
-	}
-        
-        @Override
-	public void displayForward() {
-            Link current = first;
-            while (current != null){
-                current.displayLink();
-                current = current.next;
-            }	
-            System.out.println();
-	}
+        }
+    }
 
-        @Override
-	public void displayBackward() {
-            Link current = last;
-            
-            while (current != null){
-                current.displayLink();
-                current = current.previous;
-            }	
-            System.out.println();
-	}
-	
-        @Override
-	public boolean isEmpty(){
-		return size == 0;
-	}
-	
-	public class Link{
-		private E data = null;
-		private Link previous = null;
-		private Link next = null;
-		
-		public Link(E data){
-			this.data = data;
-		}
-		
-		public void displayLink(){
-			System.out.print(data + " ");
-		}
-		
-	}
+    @Override
+    public E deleteLast() {
+        Link temp;
+        if (!isEmpty()) {
+            temp = last;
+            last = last.getPrevious();
+            last.setNext(null);
+            return temp.getData();
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public E deleteElement(E elem) {
+        Link current = first;
+        Link temp;
+
+        while (current != null) {
+            if (current.getData() == elem) {
+                temp = current;
+                current.next.setPrevious(current.getPrevious());
+                current.previous.setNext(current.getNext());
+                return temp.getData();
+            } else {
+                current = current.getNext();
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void displayForward() {
+        Link current = first;
+        while (current != null) {
+            System.out.print(current.getData());
+            current = current.getNext();
+        }
+        System.out.println();
+    }
+
+    @Override
+    public void displayBackward() {
+        Link current = last;
+
+        while (current != null) {
+            System.out.print(current.getData());
+            current = current.getPrevious();
+        }
+        System.out.println();
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    public class Link {
+
+        private E data = null;
+        private Link previous = null;
+        private Link next = null;
+
+        public Link(E data) {
+            this.data = data;
+        }
+
+        public E getData() {
+            return data;
+        }
+
+        public Link getPrevious() {
+            return previous;
+        }
+
+        public void setPrevious(Link previous) {
+            this.previous = previous;
+        }
+
+        public Link getNext() {
+            return next;
+        }
+
+        public void setNext(Link next) {
+            this.next = next;
+        }
+
+    }
 
 }

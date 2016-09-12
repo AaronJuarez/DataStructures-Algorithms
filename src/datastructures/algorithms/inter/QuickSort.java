@@ -9,6 +9,13 @@ package datastructures.algorithms.inter;
  *
  * @author Aaron
  */
-public interface QuickSort {
+public interface QuickSort<E> {
+    
+    int partitionIt(int left, int right, double pivot);
+    void sortIt();
+    void recQuickSort(int left, int right);
+    void swap(int elem1, int elem2);
+    void display();
+    
     
 }

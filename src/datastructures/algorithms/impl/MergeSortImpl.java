@@ -2,10 +2,12 @@
 package datastructures.algorithms.impl;
 
 import datastructures.algorithms.inter.MergeSort;
+import java.util.Arrays;
 
 
 public class MergeSortImpl<E> implements MergeSort<E>{
     private Double[] elements;
+    private Integer[] elem;
     
     public MergeSortImpl(E[] elemArray) throws Exception {
         
@@ -15,6 +17,7 @@ public class MergeSortImpl<E> implements MergeSort<E>{
                     || elemArray[0] instanceof Float) {
                 System.out.println("is supported");
                 elements = (Double[]) elemArray;
+                
             } else {
                 throw new Exception("Value not supported");
             }
@@ -82,8 +85,8 @@ public class MergeSortImpl<E> implements MergeSort<E>{
     
     @Override
     public void display(){
-        for(int i=0; i<getElements().length; i++){
-            System.out.print(getElements()[i] + " ");
+        for(double e: elements){
+            System.out.print(e + " ");
         }
         System.out.println();
     }
