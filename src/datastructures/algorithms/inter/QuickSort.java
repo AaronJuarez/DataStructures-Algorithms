@@ -16,6 +16,8 @@ public interface QuickSort<E> {
     void recQuickSort(int left, int right);
     void swap(int elem1, int elem2);
     void display();
+    void setElements(E[] elements) throws Exception;
+    E[] getElements();
     
     
 }

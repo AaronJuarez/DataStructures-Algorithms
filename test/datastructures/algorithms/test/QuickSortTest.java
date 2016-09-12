@@ -13,27 +13,32 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Rule;
+import org.junit.rules.ExpectedException;
 
 /**
  *
  * @author Aaron
  */
 public class QuickSortTest {
-    double[] elements;
+    Double[] elements;
     QuickSort quickSort;
     
+    //@Rule
+    //public ExpectedException thrown = new ExpectedException.none();
+    
     @Before
-    public void setUp() {
-        /*
-        elements = new double[10];
+    public void setUp() throws Exception{
+        
+        elements = new Double[10];
         
         for(int i=0; i<elements.length; i++) {
             double num = Math.round(Math.random()*10000);
             elements[i] = num/100;
         }
-        */
-        elements = new double[] {77.85, 30.86, 22.99, 46.32, 48.01, 79.86, 68.73, 57.62, 28.04, 34.42};
-        quickSort = new QuickSortImpl(elements);
+        
+        quickSort = new QuickSortImpl();
+        quickSort.setElements(elements);
     }
     
     @Test
@@ -41,5 +46,11 @@ public class QuickSortTest {
         quickSort.display();
         quickSort.sortIt();
         quickSort.display();
+    }
+    
+    @Test
+    public void stringArray() throws Exception{
+        String[] elems = new String[] {"string", "test"};
+        quickSort.setElements(elems);
     }
 }

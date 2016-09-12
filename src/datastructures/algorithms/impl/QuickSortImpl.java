@@ -12,14 +12,9 @@ import datastructures.algorithms.inter.QuickSort;
  * @author Aaron
  */
 public class QuickSortImpl<E> implements QuickSort<E>{
-    private double[] elements;
+    private Double[] elements;
     private int nElems;
-    
-    public QuickSortImpl(double[] elements) {
-        this.elements = elements;
-        nElems = elements.length;
-        System.out.println("nElems: " + nElems);
-    }
+
     
     @Override
     public void sortIt() {
@@ -81,6 +76,26 @@ public class QuickSortImpl<E> implements QuickSort<E>{
             System.out.print(e + " ");
         }
         System.out.println();
+    }
+
+    /**
+     * @return the elements
+     */
+    public E[] getElements() {
+        return (E[])elements;
+    }
+
+    /**
+     * @param elements the elements to set
+     */
+    public void setElements(E[] elements) throws Exception {
+        if(elements instanceof Double[]) {
+            this.elements = (Double[])elements;
+            nElems = elements.length;
+        }else {
+            throw new Exception();
+        }
+        
     }
     
 }

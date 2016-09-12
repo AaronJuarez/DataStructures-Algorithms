@@ -5,12 +5,8 @@
         <group>
             <file>file:/Users/Aaron/NetBeansProjects/DataStructures&amp;Algorithms/src/datastructures/algorithms/inter/QuickSort.java</file>
             <file>file:/Users/Aaron/NetBeansProjects/DataStructures&amp;Algorithms/src/datastructures/algorithms/inter/MergeSort.java</file>
-            <file>file:/Users/Aaron/NetBeansProjects/DataStructures&amp;Algorithms/src/datastructures/algorithms/impl/DoubleEndedListImpl.java</file>
             <file>file:/Users/Aaron/NetBeansProjects/DataStructures&amp;Algorithms/test/datastructures/algorithms/test/QuickSortTest.java</file>
-            <file>file:/Users/Aaron/NetBeansProjects/DataStructures&amp;Algorithms/src/datastructures/algorithms/impl/LinkedListImpl.java</file>
             <file>file:/Users/Aaron/NetBeansProjects/DataStructures&amp;Algorithms/src/datastructures/algorithms/impl/MergeSortImpl.java</file>
-            <file>file:/Users/Aaron/NetBeansProjects/DataStructures&amp;Algorithms/src/datastructures/algorithms/inter/DoublyLinkedList.java</file>
-            <file>file:/Users/Aaron/NetBeansProjects/DataStructures&amp;Algorithms/src/datastructures/algorithms/impl/DoublyLinkedListImpl.java</file>
             <file>file:/Users/Aaron/NetBeansProjects/DataStructures&amp;Algorithms/test/datastructures/algorithms/test/MergeSortTest.java</file>
             <file>file:/Users/Aaron/NetBeansProjects/DataStructures&amp;Algorithms/src/datastructures/algorithms/impl/QuickSortImpl.java</file>
         </group>
