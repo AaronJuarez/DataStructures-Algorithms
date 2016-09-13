@@ -10,35 +10,37 @@ package datastructures.algorithms.impl;
  * @author Aaron
  */
 public class BinarySearchTreeNode {
-    
-        private int data;
-        private BinarySearchTreeNode right = null;
-        private BinarySearchTreeNode left = null;
-        
-        public BinarySearchTreeNode(int value) {
-            data = value;
-        }
 
-        public int getData() {
-            return data;
-        }
+    private int data;
+    private BinarySearchTreeNode right = null;
+    private BinarySearchTreeNode left = null;
 
-        public BinarySearchTreeNode getRight() {
-            return right;
-        }
+    public BinarySearchTreeNode(int value) {
+        data = value;
+    }
 
-        public void setRight(BinarySearchTreeNode right) {
-            this.right = right;
-        }
+    public int getData() {
+        return data;
+    }
 
-        public BinarySearchTreeNode getLeft() {
-            return left;
-        }
+    public void setData(int data) {
+        this.data = data;
+    }
 
-        public void setLeft(BinarySearchTreeNode left) {
-            this.left = left;
-        }
-        
-        
-    
+    public BinarySearchTreeNode getRight() {
+        return right;
+    }
+
+    public void setRight(BinarySearchTreeNode right) {
+        this.right = right;
+    }
+
+    public BinarySearchTreeNode getLeft() {
+        return left;
+    }
+
+    public void setLeft(BinarySearchTreeNode left) {
+        this.left = left;
+    }
+
 }
